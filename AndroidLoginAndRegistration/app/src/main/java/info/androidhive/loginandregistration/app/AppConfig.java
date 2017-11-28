@@ -7,5 +7,6 @@ public class AppConfig {
 	// Server user register url
 	public static String URL_REGISTER = "http://10.0.2.2/app/user_register.php";
 
-	public static String URL_MOVIE_LIST = "http://10.0.2.2/database/index.php/user/register";
+	// View movies url
+	public static String URL_MOVIE_LIST = "http://10.0.2.2/app/movies.php";
 }
