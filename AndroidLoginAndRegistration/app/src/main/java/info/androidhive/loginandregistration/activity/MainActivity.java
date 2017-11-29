@@ -56,7 +56,8 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				logoutUser();
+				showMovieList();
+				//logoutUser();
 			}
 		});
 	}
@@ -72,6 +73,12 @@ public class MainActivity extends Activity {
 
 		// Launching the login activity
 		Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+		startActivity(intent);
+		finish();
+	}
+
+	private void showMovieList() {
+		Intent intent = new Intent(MainActivity.this, MovieActivity.class);
 		startActivity(intent);
 		finish();
 	}

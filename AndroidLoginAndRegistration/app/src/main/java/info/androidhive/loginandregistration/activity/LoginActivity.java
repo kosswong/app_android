@@ -113,9 +113,7 @@ public class LoginActivity extends Activity {
         pDialog.setMessage("Logging in ...");
         showDialog();
 
-        String URL_LOGIN = "http://10.0.2.2/app/user_login.php";
-        StringRequest strReq = new StringRequest(Method.POST,
-                URL_LOGIN, new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Method.POST, "http://10.0.2.2/app/user_login.php", new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -146,7 +144,7 @@ public class LoginActivity extends Activity {
 
                         // Launch main activity
                         Intent intent = new Intent(LoginActivity.this,
-                                MainActivity.class);
+                                MovieActivity.class);
                         startActivity(intent);
                         finish();
                     } else {

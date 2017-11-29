@@ -114,9 +114,7 @@ public class RegisterActivity extends Activity {
         pDialog.setMessage("Registering ...");
         showDialog();
 
-        String URL_REGISTER = "http://10.0.2.2/app/user_register.php";
-        StringRequest strReq = new StringRequest(Method.POST,
-                URL_REGISTER, new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Method.POST, "http://10.0.2.2/app/user_register.php", new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
