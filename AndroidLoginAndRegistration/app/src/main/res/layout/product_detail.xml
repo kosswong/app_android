@@ -11,7 +11,8 @@
         android:layout_marginTop="10dp"
         android:textStyle="bold"
         android:textSize="18sp"
-        android:text="@string/info"  />
+        android:text="@string/info"
+        android:id="@+id/textView" />
 
     <TextView
         android:id="@+id/wid"
@@ -58,6 +59,15 @@
         android:layout_marginTop="30dp"
         android:textStyle="bold"
         android:text="@string/url" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/url"
+        android:layout_alignBottom="@+id/url"
+        android:layout_centerHorizontal="true"
+        android:text="Add to cart car" />
 
 </RelativeLayout>
     <!--https://www.journaldev.com/10642/android-jsonobject-json-parsing-->
