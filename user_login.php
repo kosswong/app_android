@@ -16,17 +16,18 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 	$stmt = mysqli_prepare($conn, "SELECT * FROM app_users WHERE email = ?");
 	mysqli_stmt_bind_param($stmt, "s", $email);
 	$result = mysqli_stmt_execute($stmt);
+
+	$user = $stmt->get_result()->fetch_assoc();
 	
 	// check password
-	if (!empty($result)) {
-		$user = $stmt->get_result()->fetch_assoc();
+	/*if (!empty($result)) {
 		$salt = $user['salt'];
 		$encrypted_password = $user['encrypted_password'];
 		$hash = checkhashSSHA($salt, $password);
 		if($encrypted_password != $hash){	// verifying user password
 			$user = false;
 		}
-	}
+	}*/
 
 	if ($user != false) {
 		// use is found

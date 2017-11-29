@@ -144,7 +144,7 @@ public class LoginActivity extends Activity {
 
                         // Launch main activity
                         Intent intent = new Intent(LoginActivity.this,
-                                MovieActivity.class);
+                                MainActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
