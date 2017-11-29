@@ -1,72 +1,40 @@
 <?php
 
-/*
- * Following code will get single product details
- * A product is identified by product id (pid)
- */
+$response = array("error" => FALSE);
 
-// array for JSON response
-$response = array();
-
-
-// include db connect class
 require_once __DIR__ . '/db_connect.php';
+$db = new Db_Connect();
+$conn = $db->connect();
 
-// connecting to db
-$db = new DB_CONNECT();
+$movie_id = '1';
 
-// check for post data
-if (isset($_GET["pid"])) {
-    $pid = $_GET['pid'];
+// get all products from products table
+$result = mysqli_query($conn, "SELECT * FROM app_movies WHERE movie_id=$movie_id");
 
-    // get a product from products table
-    $result = mysql_query("SELECT *FROM products WHERE pid = $pid");
-
-    if (!empty($result)) {
-        // check for empty result
-        if (mysql_num_rows($result) > 0) {
-
-            $result = mysql_fetch_array($result);
-
-            $product = array();
-            $product["pid"] = $result["pid"];
-            $product["name"] = $result["name"];
-            $product["price"] = $result["price"];
-            $product["description"] = $result["description"];
-            $product["created_at"] = $result["created_at"];
-            $product["updated_at"] = $result["updated_at"];
-            // success
-            $response["success"] = 1;
-
-            // user node
-            $response["product"] = array();
-
-            array_push($response["product"], $product);
-
-            // echoing JSON response
-            echo json_encode($response);
-        } else {
-            // no product found
-            $response["success"] = 0;
-            $response["message"] = "No product found";
-
-            // echo no users JSON
-            echo json_encode($response);
-        }
-    } else {
-        // no product found
-        $response["success"] = 0;
-        $response["message"] = "No product found";
-
-        // echo no users JSON
-        echo json_encode($response);
+// check for empty result
+if (mysqli_num_rows($result) > 0) {    
+	$movie = array();
+    while ($row = mysqli_fetch_array($result)) {
+        // temp user array
+        $movie["pid"] = $row["movie_id"];
+        $movie["name"] = $row["movie_name"];
+        $movie["price"] = '1000';
+        $movie["description"] = $row["movie_detail"];
+        $movie["class"] = $row["movie_class"];
+        $movie["youtube"] = $row["youtube"];
     }
-} else {
-    // required field is missing
-    $response["success"] = 0;
-    $response["message"] = "Required field(s) is missing";
+    // success
+    $response["movie"] = $movie;
+    $response["success"] = 1;
 
     // echoing JSON response
+    echo json_encode($response);
+} else {
+    // no products found
+    $response["success"] = 0;
+    $response["message"] = "No products found";
+
+    // echo no users JSON
     echo json_encode($response);
 }
 ?>

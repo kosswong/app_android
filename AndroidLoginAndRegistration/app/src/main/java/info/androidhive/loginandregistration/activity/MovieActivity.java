@@ -13,6 +13,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import android.view.Menu;
+import android.widget.TextView;
 
 import info.androidhive.loginandregistration.R;
 
@@ -49,36 +51,27 @@ public class MovieActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.product_all);
+
+        TextView wid = (TextView) findViewById(R.id.wid);
+        TextView name = (TextView) findViewById(R.id.name);
+        TextView url = (TextView) findViewById(R.id.url);
+
+        name.setText("dsgfah7h49gwaawga");
+
+        /*
         try {
 
-            ListView listView = (ListView) findViewById(R.id.list_view);
 
-            List<String> items = new ArrayList<>();
-            JSONObject root = new JSONObject(json_string);
+            JSONObject jArray = new JSONObject(json_string);
 
-            JSONArray array= root.getJSONArray("products");
-
-            this.setTitle(root.getString("title"));
-
-            for(int i=0;i<array.length();i++)
-            {
-                JSONObject object= array.getJSONObject(i);
-                items.add(object.getString("name"));
-            }
-
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                    android.R.layout.simple_list_item_1, items);
-
-            if (listView != null) {
-                listView.setAdapter(adapter);
-            }
-
-            JSONObject nested= root.getJSONObject("nested");
-            Log.d("TAG","flag value "+nested.getBoolean("flag"));
+            wid.setText(jArray.getString("title"));
+            name.setText(jArray.getString("products"));
+            url.setText(jArray.getString("name"));
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        */
 
 
     }

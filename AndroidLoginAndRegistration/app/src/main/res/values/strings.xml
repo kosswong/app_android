@@ -13,4 +13,11 @@
     <string name="btn_logout">LOGOUT</string>
     <string name="name">Fullname</string>
 
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="info">Website Information from URL</string>
+    <string name="wid">ID</string>
+    <string name="url">Website</string>
+
+
 </resources>

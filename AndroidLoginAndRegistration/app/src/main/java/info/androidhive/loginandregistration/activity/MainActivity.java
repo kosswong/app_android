@@ -78,7 +78,7 @@ public class MainActivity extends Activity {
 	}
 
 	private void showMovieList() {
-		Intent intent = new Intent(MainActivity.this, MovieActivity.class);
+		Intent intent = new Intent(MainActivity.this, MovieDetailActivity.class);
 		startActivity(intent);
 		finish();
 	}
