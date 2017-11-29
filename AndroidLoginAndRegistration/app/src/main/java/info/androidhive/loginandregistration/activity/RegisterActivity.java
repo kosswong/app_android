@@ -27,7 +27,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import info.androidhive.loginandregistration.R;
-import info.androidhive.loginandregistration.app.AppConfig;
 import info.androidhive.loginandregistration.app.AppController;
 import info.androidhive.loginandregistration.helper.SQLiteHandler;
 import info.androidhive.loginandregistration.helper.SessionManager;
@@ -115,8 +114,9 @@ public class RegisterActivity extends Activity {
         pDialog.setMessage("Registering ...");
         showDialog();
 
+        String URL_REGISTER = "http://10.0.2.2/app/user_register.php";
         StringRequest strReq = new StringRequest(Method.POST,
-                AppConfig.URL_REGISTER, new Response.Listener<String>() {
+                URL_REGISTER, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
