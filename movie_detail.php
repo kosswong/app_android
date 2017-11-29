@@ -6,7 +6,9 @@ require_once __DIR__ . '/db_connect.php';
 $db = new Db_Connect();
 $conn = $db->connect();
 
-$movie_id = '1';
+if (isset($_GET['vid'])) {
+
+$movie_id = $_GET['vid'];
 
 // get all products from products table
 $result = mysqli_query($conn, "SELECT * FROM app_movies WHERE movie_id=$movie_id");
@@ -33,6 +35,16 @@ if (mysqli_num_rows($result) > 0) {
     // no products found
     $response["success"] = 0;
     $response["message"] = "No products found";
+
+    // echo no users JSON
+    echo json_encode($response);
+}
+
+}else{
+
+    // no products found
+    $response["success"] = 0;
+    $response["message"] = "Please enter id.";
 
     // echo no users JSON
     echo json_encode($response);
