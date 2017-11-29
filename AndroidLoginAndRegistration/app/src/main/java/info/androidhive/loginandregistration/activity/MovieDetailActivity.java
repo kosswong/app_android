@@ -31,12 +31,11 @@ public class MovieDetailActivity extends AppCompatActivity {
 
         try {
 
-            JSONObject emp=(new JSONObject(json_string)).getJSONObject("movie");
+            JSONObject movie=(new JSONObject(json_string)).getJSONObject("movie");
 
-            //String str="Employee Name:"+empname+"\n"+"Employee Salary:"+empsalary;
-            wid.setText(emp.getString("pid"));
-            name.setText(emp.getString("name"));
-            url.setText(emp.getString("youtube"));
+            wid.setText(movie.getString("pid"));
+            name.setText(movie.getString("name"));
+            url.setText(movie.getString("youtube"));
 
         } catch (JSONException e) {
             e.printStackTrace();
