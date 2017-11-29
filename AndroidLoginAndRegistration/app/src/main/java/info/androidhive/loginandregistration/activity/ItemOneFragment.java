@@ -1,8 +1,11 @@
 package info.androidhive.loginandregistration.activity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import android.widget.ListView;
@@ -20,6 +23,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import info.androidhive.loginandregistration.R;
 
@@ -59,14 +64,26 @@ public class ItemOneFragment extends Fragment {
                 items.add(object.getString("name"));
             }
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1, items);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, items);
 
             if (listView != null) {
                 listView.setAdapter(adapter);
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    public void onItemClick(AdapterView<?> parent, View view,
+                                            int position, long id) {
+                        Toast.makeText(getContext(),
+                                "Please enter the credentials!"+position, Toast.LENGTH_LONG)
+                                .show();
+                        Intent myIntent = new Intent(getActivity(), MovieDetailActivity.class);
+                        myIntent.putExtra("Id", position);
+                        startActivity(myIntent);
+                    }
+                });
             }
 
             JSONObject nested= root.getJSONObject("nested");
             Log.d("TAG","flag value "+nested.getBoolean("flag"));
+
 
         } catch (JSONException e) {
             e.printStackTrace();
