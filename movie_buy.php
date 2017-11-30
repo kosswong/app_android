@@ -1,51 +1,52 @@
 <?php
 
-/*
- * Following code will create a new product row
- * All product details are read from HTTP Post Request
- */
+$response = array("error" => FALSE);
 
-// array for JSON response
-$response = array();
+require_once __DIR__ . '/db_connect.php';
+$db = new Db_Connect();
+$conn = $db->connect();
 
-// check for required fields
-if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description'])) {
-    
-    $name = $_POST['name'];
-    $price = $_POST['price'];
-    $description = $_POST['description'];
+//if (isset($_GET['vid'])) {
 
-    // include db connect class
-    require_once __DIR__ . '/db_connect.php';
+$movie_id = $_GET['vid'];
 
-    // connecting to db
-    $db = new DB_CONNECT();
+// get all products from products table
+$result = mysqli_query($conn, "SELECT * FROM app_movies WHERE movie_id=$movie_id");
 
-    // mysql inserting a new row
-    $result = mysql_query("INSERT INTO products(name, price, description) VALUES('$name', '$price', '$description')");
-
-    // check if row inserted or not
-    if ($result) {
-        // successfully inserted into database
-        $response["success"] = 1;
-        $response["message"] = "Product successfully created.";
-
-        // echoing JSON response
-        echo json_encode($response);
-    } else {
-        // failed to insert row
-        $response["success"] = 0;
-        $response["message"] = "Oops! An error occurred.";
-        
-        // echoing JSON response
-        echo json_encode($response);
+// check for empty result
+if (mysqli_num_rows($result) > 0) {    
+	$movie = array();
+    while ($row = mysqli_fetch_array($result)) {
+        // temp user array
+        $movie["pid"] = $row["movie_id"];
+        $movie["name"] = $row["movie_name"];
+        $movie["price"] = '1000';
+        $movie["description"] = $row["movie_detail"];
+        $movie["class"] = $row["movie_class"];
+        $movie["youtube"] = $row["youtube"];
     }
-} else {
-    // required field is missing
-    $response["success"] = 0;
-    $response["message"] = "Required field(s) is missing";
+    // success
+    $response["movie"] = $movie;
+    $response["success"] = 1;
 
     // echoing JSON response
     echo json_encode($response);
+} else {
+    // no products found
+    $response["success"] = 0;
+    $response["message"] = "No products found";
+
+    // echo no users JSON
+    echo json_encode($response);
 }
+
+/*}else{
+
+    // no products found
+    $response["success"] = 0;
+    $response["message"] = "Please enter id.";
+
+    // echo no users JSON
+    echo json_encode($response);
+}*/
 ?>
