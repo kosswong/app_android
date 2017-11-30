@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/cardview_shadow_start_color"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="false"
+                android:contentDescription="@string/todo"
+                android:cropToPadding="false"
+                android:scaleType="centerCrop"
+                android:src="@drawable/desktop"
+                app:layout_collapseParallaxMultiplier="1.0" />
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_scrolling"
+        android:layout_height="571dp"
+        app:layout_anchor="@+id/btnLogout"
+        app:layout_anchorGravity="bottom|center"
+        tools:layout_editor_absoluteY="176dp" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnLogout"
+        android:layout_width="62dp"
+        android:layout_height="57dp"
+        android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="@color/btn_logut_bg"
+        app:fabSize="mini"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="right|top"
+        app:srcCompat="@drawable/ic_launcher"
+        tools:layout_editor_absoluteX="306dp"
+        tools:layout_editor_absoluteY="151dp" />
+
+</android.support.design.widget.CoordinatorLayout>

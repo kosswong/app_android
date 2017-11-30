@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="75dp"
-        android:layout_marginTop="45dp"  />
+        android:layout_marginTop="45dp"  android:layout_marginStart="75dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/wid"
         android:layout_marginLeft="75dp"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="30dp" android:layout_marginStart="75dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
         android:layout_marginLeft="75dp"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="30dp" android:layout_marginStart="75dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,7 +67,7 @@
         android:layout_alignBaseline="@+id/url"
         android:layout_alignBottom="@+id/url"
         android:layout_centerHorizontal="true"
-        android:text="Add to cart" />
+        android:text="@string/add_to_cart" />
 
 </RelativeLayout>
     <!--https://www.journaldev.com/10642/android-jsonobject-json-parsing-->

@@ -2,6 +2,7 @@ package info.androidhive.loginandregistration.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,7 @@ public class UserDetailActivity extends Fragment {
 
     private SQLiteHandler db;
     private SessionManager session;
+    CollapsingToolbarLayout collapsingToolbarLayout;
 
     public static UserDetailActivity newInstance() {
         UserDetailActivity fragment = new UserDetailActivity();
@@ -38,7 +40,7 @@ public class UserDetailActivity extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.user_detail, container, false);
+        View rootView = inflater.inflate(R.layout.activity_scrolling, container, false);
 
         txtName = (TextView) rootView.findViewById(R.id.name);
         txtEmail = (TextView) rootView.findViewById(R.id.email);
@@ -55,6 +57,8 @@ public class UserDetailActivity extends Fragment {
 
         String name = user.get("name");
         String email = user.get("email");
+        collapsingToolbarLayout = (CollapsingToolbarLayout) rootView.findViewById(R.id.toolbar_layout);
+        collapsingToolbarLayout.setTitle("My acount");
 
         // Displaying the user details on the screen
         txtName.setText(name);
@@ -66,7 +70,8 @@ public class UserDetailActivity extends Fragment {
             @Override
             public void onClick(View v) {
                 //showMovieList();
-                logoutUser();
+                startActivity(new Intent(getActivity(), BasicPlayerActivity.class));
+                //logoutUser();
             }
         });
 
