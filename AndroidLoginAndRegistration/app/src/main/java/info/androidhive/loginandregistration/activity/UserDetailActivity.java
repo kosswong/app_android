@@ -70,8 +70,8 @@ public class UserDetailActivity extends Fragment {
             @Override
             public void onClick(View v) {
                 //showMovieList();
-                startActivity(new Intent(getActivity(), BasicPlayerActivity.class));
-                //logoutUser();
+                //startActivity(new Intent(getActivity(), BasicPlayerActivity.class));
+                logoutUser();
             }
         });
 

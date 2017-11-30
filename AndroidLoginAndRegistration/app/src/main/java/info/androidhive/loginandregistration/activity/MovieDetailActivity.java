@@ -30,6 +30,7 @@ public class MovieDetailActivity extends Activity {
     private SessionManager session;
     private SQLiteHandler db;
     private Button btnBuyMovie;
+    private Button button2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,6 +120,22 @@ public class MovieDetailActivity extends Activity {
                             "We cannot received your user record!", Toast.LENGTH_LONG)
                             .show();
                 }
+            }
+        });
+
+
+
+        button2 = (Button) findViewById(R.id.button2);
+
+// Register Button Click event
+        button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+
+                // Launch main activity
+                Intent intent = new Intent(MovieDetailActivity.this,
+                        YouTubePlayerFragmentActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

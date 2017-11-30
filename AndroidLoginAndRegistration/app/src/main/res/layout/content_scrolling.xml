@@ -54,6 +54,16 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="15dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="225dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="謝謝支持" />
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

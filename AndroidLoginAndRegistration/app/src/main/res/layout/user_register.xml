@@ -21,44 +21,60 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp" >
 
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="fill_parent"
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@color/input_register_bg"
-            android:hint="@string/hint_name"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:inputType="textCapWords"
-            android:textColor="@color/input_register"
-            android:textColorHint="@color/input_register_hint" />
+            android:layout_marginTop="30dp"
+            android:textColorHint="#cccccc">
 
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@color/input_register_bg"
-            android:hint="@string/hint_email"
-            android:inputType="textEmailAddress"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:textColor="@color/input_register"
-            android:textColorHint="@color/input_register_hint" />
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ffff"
+                android:drawableLeft="@drawable/ic_face_black_24dp"
+                android:hint="@string/hint_name"
+                android:inputType="textPersonName"
+                android:textColor="#cccccc"
+                android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="fill_parent"
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@color/input_register_bg"
-            android:hint="@string/hint_password"
-            android:inputType="textPassword"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:textColor="@color/input_register"
-            android:textColorHint="@color/input_register_hint" />
+            android:layout_marginTop="10dp"
+            android:textColorHint="#cccccc">
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ffff"
+                android:drawableLeft="@drawable/ic_face_black_24dp"
+                android:hint="@string/hint_email"
+                android:inputType="textEmailAddress"
+                android:textColor="#cccccc"
+                android:textSize="20sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColorHint="#cccccc">
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ffff"
+                android:drawableLeft="@drawable/ic_face_black_24dp"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword"
+                android:textColor="#cccccc"
+                android:textSize="20sp" />
+        </android.support.design.widget.TextInputLayout>
 
         <!-- Login Button -->
 
