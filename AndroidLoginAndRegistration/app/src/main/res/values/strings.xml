@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">花生致敏</string>
+    <string name="app_name">花生</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="hint_name">Fullname</string>
@@ -20,7 +20,8 @@
     <string name="url">Website</string>
 
     <string name="item_1">Movies</string>
-    <string name="item_2">My List</string>
+    <string name="item_2">My Movies</string>
     <string name="item_3">Profile</string>
+    <string name="item_4">Cart</string>
 
 </resources>
