@@ -2,6 +2,7 @@ package info.androidhive.loginandregistration.activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
@@ -20,12 +21,15 @@ public class YouTubePlayerFragmentActivity extends YouTubeBaseActivity {
     public static final String API_KEY = "AIzaSyBx7v0YOb140fDO7EbfMx4l87raxezDWFw";
 
     //https://www.youtube.com/watch?v=<VIDEO_ID>
-    public static final String VIDEO_ID = "-m3V8w_7vhk";
+    public static String VIDEO_ID;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_youtube_player_fragment);
+
+        Intent intent = getIntent();
+        final String VIDEO_ID = intent.getExtras().getString("youtube_id");
 
         //initializing and adding YouTubePlayerFragment
         FragmentManager fm = getFragmentManager();

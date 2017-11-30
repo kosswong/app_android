@@ -130,10 +130,11 @@ public class MovieDetailActivity extends Activity {
 // Register Button Click event
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
-                // Launch main activity
+                TextView url = (TextView) findViewById(R.id.url);
+                String youtube_id = url.getText().toString();
                 Intent intent = new Intent(MovieDetailActivity.this,
                         YouTubePlayerFragmentActivity.class);
+                intent.putExtra("youtube_id", youtube_id);
                 startActivity(intent);
                 finish();
             }
