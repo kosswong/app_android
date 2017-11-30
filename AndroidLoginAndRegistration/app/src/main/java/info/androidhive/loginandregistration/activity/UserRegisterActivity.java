@@ -33,8 +33,8 @@ import info.androidhive.loginandregistration.app.AppController;
 import info.androidhive.loginandregistration.helper.SQLiteHandler;
 import info.androidhive.loginandregistration.helper.SessionManager;
 
-public class RegisterActivity extends Activity {
-    private static final String TAG = RegisterActivity.class.getSimpleName();
+public class UserRegisterActivity extends Activity {
+    private static final String TAG = UserRegisterActivity.class.getSimpleName();
     private Button btnRegister;
     private Button btnLinkToLogin;
     private EditText inputFullName;
@@ -47,11 +47,11 @@ public class RegisterActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.user_register);
 
         ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(R.id.root_layout);
         AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
-        animationDrawable.setEnterFadeDuration(1000);
+        animationDrawable.setEnterFadeDuration(500);
         animationDrawable.setExitFadeDuration(3000);
         animationDrawable.start();
 
@@ -74,7 +74,7 @@ public class RegisterActivity extends Activity {
         // Check if user is already logged in or not
         if (session.isLoggedIn()) {
             // User is already logged in. Take him to main activity
-            Intent intent = new Intent(RegisterActivity.this,
+            Intent intent = new Intent(UserRegisterActivity.this,
                     MainActivity.class);
             startActivity(intent);
             finish();
@@ -102,7 +102,7 @@ public class RegisterActivity extends Activity {
 
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(),
-                        LoginActivity.class);
+                        UserLoginActivity.class);
                 startActivity(i);
                 finish();
             }
@@ -150,8 +150,8 @@ public class RegisterActivity extends Activity {
 
                         // Launch login activity
                         Intent intent = new Intent(
-                                RegisterActivity.this,
-                                LoginActivity.class);
+                                UserRegisterActivity.this,
+                                UserLoginActivity.class);
                         startActivity(intent);
                         finish();
                     } else {

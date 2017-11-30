@@ -61,13 +61,13 @@
         android:text="@string/url" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buyMovie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/url"
         android:layout_alignBottom="@+id/url"
         android:layout_centerHorizontal="true"
-        android:text="Add to cart car" />
+        android:text="Add to cart" />
 
 </RelativeLayout>
     <!--https://www.journaldev.com/10642/android-jsonobject-json-parsing-->

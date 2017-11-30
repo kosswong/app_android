@@ -26,13 +26,13 @@ public class MainActivity extends AppCompatActivity {
 						Fragment selectedFragment = null;
 						switch (item.getItemId()) {
 							case R.id.action_item1:
-								selectedFragment = ItemOneFragment.newInstance();
+								selectedFragment = MovieListActivity.newInstance();
 								break;
 							case R.id.action_item2:
-								selectedFragment = ItemTwoFragment.newInstance();
+								selectedFragment = UserCartActivity.newInstance();
 								break;
 							case R.id.action_item3:
-								selectedFragment = ItemThreeFragment.newInstance();
+								selectedFragment = UserDetailActivity.newInstance();
 								break;
 						}
 						FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
 		//Manually displaying the first fragment - one time only
 		FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-		transaction.replace(R.id.frame_layout, ItemOneFragment.newInstance());
+		transaction.replace(R.id.frame_layout, MovieListActivity.newInstance());
 		transaction.commit();
 
 		//Used to select an item programmatically

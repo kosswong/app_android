@@ -15,7 +15,7 @@ import info.androidhive.loginandregistration.R;
 import info.androidhive.loginandregistration.helper.SQLiteHandler;
 import info.androidhive.loginandregistration.helper.SessionManager;
 
-public class ItemThreeFragment extends Fragment {
+public class UserDetailActivity extends Fragment {
 
     private TextView txtName;
     private TextView txtEmail;
@@ -24,8 +24,8 @@ public class ItemThreeFragment extends Fragment {
     private SQLiteHandler db;
     private SessionManager session;
 
-    public static ItemThreeFragment newInstance() {
-        ItemThreeFragment fragment = new ItemThreeFragment();
+    public static UserDetailActivity newInstance() {
+        UserDetailActivity fragment = new UserDetailActivity();
         return fragment;
     }
 
@@ -38,7 +38,7 @@ public class ItemThreeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.activity_user, container, false);
+        View rootView = inflater.inflate(R.layout.user_detail, container, false);
 
         txtName = (TextView) rootView.findViewById(R.id.name);
         txtEmail = (TextView) rootView.findViewById(R.id.email);
@@ -79,7 +79,7 @@ public class ItemThreeFragment extends Fragment {
         db.deleteUsers();
 
         // Launching the login activity
-        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        Intent intent = new Intent(getActivity(), UserLoginActivity.class);
         startActivity(intent);
         getActivity().finish();
     }

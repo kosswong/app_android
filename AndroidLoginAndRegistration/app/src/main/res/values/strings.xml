@@ -20,8 +20,8 @@
     <string name="url">Website</string>
 
     <string name="item_1">Movies</string>
-    <string name="item_2">My Movies</string>
+    <string name="item_2">Cart</string>
     <string name="item_3">Profile</string>
-    <string name="item_4">Cart</string>
+    <string name="item_4">My Movies</string>
 
 </resources>

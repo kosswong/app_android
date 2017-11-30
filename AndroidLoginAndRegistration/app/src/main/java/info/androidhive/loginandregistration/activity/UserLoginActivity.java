@@ -31,8 +31,8 @@ import info.androidhive.loginandregistration.app.AppController;
 import info.androidhive.loginandregistration.helper.SQLiteHandler;
 import info.androidhive.loginandregistration.helper.SessionManager;
 
-public class LoginActivity extends AppCompatActivity {
-    private static final String TAG = RegisterActivity.class.getSimpleName();
+public class UserLoginActivity extends AppCompatActivity {
+    private static final String TAG = UserRegisterActivity.class.getSimpleName();
     private Button btnLogin;
     private Button btnLinkToRegister;
     private EditText inputEmail;
@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.uesr_login);
 
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
         // Check if user is already logged in or not
         if (session.isLoggedIn()) {
             // User is already logged in. Take him to main activity
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         }
@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
 
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(),
-                        RegisterActivity.class);
+                        UserRegisterActivity.class);
                 startActivity(i);
                 finish();
             }
@@ -143,7 +143,7 @@ public class LoginActivity extends AppCompatActivity {
                         db.addUser(name, email, uid, created_at);
 
                         // Launch main activity
-                        Intent intent = new Intent(LoginActivity.this,
+                        Intent intent = new Intent(UserLoginActivity.this,
                                 MainActivity.class);
                         startActivity(intent);
                         finish();

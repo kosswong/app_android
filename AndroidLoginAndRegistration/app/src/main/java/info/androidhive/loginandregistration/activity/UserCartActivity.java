@@ -30,15 +30,15 @@ import info.androidhive.loginandregistration.app.AppController;
 import info.androidhive.loginandregistration.helper.SQLiteHandler;
 import info.androidhive.loginandregistration.helper.SessionManager;
 
-public class ItemOneFragment extends Fragment {
+public class UserCartActivity extends Fragment {
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
 
     private AppCompatActivity mClass;
 
-    public static ItemOneFragment newInstance() {
-        ItemOneFragment fragment = new ItemOneFragment();
+    public static UserCartActivity newInstance() {
+        UserCartActivity fragment = new UserCartActivity();
         return fragment;
     }
 
@@ -51,7 +51,7 @@ public class ItemOneFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        final View rootView = inflater.inflate(R.layout.product_all, container, false);
+        final View rootView = inflater.inflate(R.layout.user_cart, container, false);
 
         // SQLite database handler
         db = new SQLiteHandler(getActivity().getApplicationContext());
@@ -61,7 +61,7 @@ public class ItemOneFragment extends Fragment {
 
         String tag_string_req = "req_list";
 
-        StringRequest strReq = new StringRequest(Request.Method.POST, "http://10.0.2.2/app/movie_list.php", new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Request.Method.POST, "http://10.0.2.2/app/user_cart.php", new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -71,7 +71,7 @@ public class ItemOneFragment extends Fragment {
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
 
-                    ListView listView = (ListView) rootView.findViewById(R.id.list_view);
+                    ListView listView = (ListView) rootView.findViewById(R.id.cart_view);
 
                     List<String> items = new ArrayList<>();
 
@@ -93,9 +93,7 @@ public class ItemOneFragment extends Fragment {
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 public void onItemClick(AdapterView<?> parent, View view,
                                                         int position, long id) {
-                                    Toast.makeText(getContext(),
-                                            "Please enter the credentials!"+position, Toast.LENGTH_LONG)
-                                            .show();
+                                    // Movie detail view
                                     Intent myIntent = new Intent(getActivity(), MovieDetailActivity.class);
                                     myIntent.putExtra("Id", position);
                                     startActivity(myIntent);
