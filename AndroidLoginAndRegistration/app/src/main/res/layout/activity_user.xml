@@ -25,12 +25,21 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:textColor="@color/lbl_name"
+            android:text="Chan Tai Man"
             android:textSize="24dp" />
 
         <TextView
             android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="demo@123.com"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$1000"
             android:textSize="13dp" />
 
         <Button
