@@ -1,5 +1,6 @@
 package info.androidhive.loginandregistration.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -18,15 +19,16 @@ import static com.google.android.youtube.player.YouTubePlayer.Provider;
 
 public class BasicPlayerActivity extends YouTubeBaseActivity implements OnInitializedListener {
     public static final String API_KEY = "AIzaSyBx7v0YOb140fDO7EbfMx4l87raxezDWFw";
-
-    //https://www.youtube.com/watch?v=<VIDEO_ID>
-    public static final String VIDEO_ID = "-m3V8w_7vhk";
+    public static String VIDEO_ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // attaching layout xml
         setContentView(R.layout.activity_basic_player);
+
+        Intent intent = getIntent();
+        final String VIDEO_ID = intent.getExtras().getString("youtube_id");
 
         // Initializing YouTube player view
         YouTubePlayerView youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_player_view);

@@ -44,8 +44,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		String CREATE_LOGIN_TABLE = "CREATE TABLE " + TABLE_USER + "("
 				+ KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-				+ KEY_EMAIL + " TEXT UNIQUE," + KEY_UID + " TEXT,"
-				+ KEY_CREATED_AT + " TEXT" + ")";
+				+ KEY_EMAIL + " TEXT UNIQUE,"
+				+ KEY_UID + " TEXT,"
+				+ KEY_CREATED_AT + " TEXT"
+                + ")";
 		db.execSQL(CREATE_LOGIN_TABLE);
 
 		Log.d(TAG, "Database tables created");

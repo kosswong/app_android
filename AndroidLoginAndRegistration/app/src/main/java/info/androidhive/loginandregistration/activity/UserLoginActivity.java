@@ -137,15 +137,12 @@ public class UserLoginActivity extends AppCompatActivity {
                         JSONObject user = jObj.getJSONObject("user");
                         String name = user.getString("name");
                         String email = user.getString("email");
-                        String money = user.getString("money");
-                        String created_at = user
-                                .getString("created_at");
+                        String created_at = "$"+user.getString("money");
+
+                        Toast.makeText(getApplicationContext(), "You have $"+user.getString("money"), Toast.LENGTH_LONG).show();
 
                         // Inserting row in users table
                         db.addUser(name, email, uid, created_at);
-
-                        TextView moneyView = (TextView) findViewById(R.id.money);
-                        moneyView.setText(jObj.getString("money"));
 
                         // Launch main activity
                         Intent intent = new Intent(UserLoginActivity.this,

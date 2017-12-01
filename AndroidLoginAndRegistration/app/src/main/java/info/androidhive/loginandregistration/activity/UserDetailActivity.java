@@ -31,6 +31,7 @@ public class UserDetailActivity extends Fragment {
 
     private TextView txtName;
     private TextView txtEmail;
+    private TextView txtMoney;
     private Button btnLogout;
     private Button btnPayment;
 
@@ -56,6 +57,7 @@ public class UserDetailActivity extends Fragment {
 
         txtName = (TextView) rootView.findViewById(R.id.name);
         txtEmail = (TextView) rootView.findViewById(R.id.email);
+        txtMoney = (TextView) rootView.findViewById(R.id.money);
         btnLogout = (Button) rootView.findViewById(R.id.btnLogout);
         btnPayment = (Button) rootView.findViewById(R.id.btnPayment);
 
@@ -70,12 +72,14 @@ public class UserDetailActivity extends Fragment {
 
         String name = user.get("name");
         String email = user.get("email");
+        String money = user.get("created_at");
         collapsingToolbarLayout = (CollapsingToolbarLayout) rootView.findViewById(R.id.toolbar_layout);
         collapsingToolbarLayout.setTitle("My account");
 
         // Displaying the user details on the screen
         txtName.setText(name);
         txtEmail.setText(email);
+        txtMoney.setText(money);
 
         // Logout button click event
         btnLogout.setOnClickListener(new View.OnClickListener() {
