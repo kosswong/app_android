@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request.Method;
@@ -136,11 +137,15 @@ public class UserLoginActivity extends AppCompatActivity {
                         JSONObject user = jObj.getJSONObject("user");
                         String name = user.getString("name");
                         String email = user.getString("email");
+                        String money = user.getString("money");
                         String created_at = user
                                 .getString("created_at");
 
                         // Inserting row in users table
                         db.addUser(name, email, uid, created_at);
+
+                        TextView moneyView = (TextView) findViewById(R.id.money);
+                        moneyView.setText(jObj.getString("money"));
 
                         // Launch main activity
                         Intent intent = new Intent(UserLoginActivity.this,

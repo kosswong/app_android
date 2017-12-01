@@ -12,6 +12,9 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	
+	// receiving the post params
+	$email = "mary";
+
 	// get the user by email and password
 	$stmt = mysqli_prepare($conn, "SELECT * FROM app_users WHERE email = ?");
 	mysqli_stmt_bind_param($stmt, "s", $email);
@@ -35,6 +38,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 		$response["uid"] = $user["unique_id"];
 		$response["user"]["name"] = $user["name"];
 		$response["user"]["email"] = $user["email"];
+		$response["user"]["money"] = $user["money"];
 		$response["user"]["created_at"] = $user["created_at"];
 		$response["user"]["updated_at"] = $user["updated_at"];
 		echo json_encode($response);

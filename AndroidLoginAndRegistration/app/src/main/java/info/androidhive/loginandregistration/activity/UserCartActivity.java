@@ -26,6 +26,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import info.androidhive.loginandregistration.R;
 import info.androidhive.loginandregistration.app.AppController;
@@ -156,7 +157,22 @@ public class UserCartActivity extends Fragment {
                 Toast.makeText(getActivity(),
                         error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        });
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting parameters to login url
+
+                HashMap<String, String> user = db.getUserDetails();
+                String uid = user.get("uid");
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("uid", uid);
+
+                return params;
+            }
+
+        };
 
 
         // Adding request to request queue

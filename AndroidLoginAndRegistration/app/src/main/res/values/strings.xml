@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">花生</string>
+    <string name="app_name">Movie play</string>
     <string name="hint_email">  Email</string>
     <string name="hint_password">  Password</string>
     <string name="hint_name">  Fullname</string>
@@ -21,7 +21,7 @@
 
     <string name="item_1">Movies</string>
     <string name="item_2">Cart</string>
-    <string name="item_3">Profile</string>
+    <string name="item_3">Do Payment</string>
     <string name="item_4">My Movies</string>
 
     <string name="add_to_cart">Add to cart</string>

@@ -140,6 +140,7 @@ public class UserRegisterActivity extends Activity {
                         JSONObject user = jObj.getJSONObject("user");
                         String name = user.getString("name");
                         String email = user.getString("email");
+                        String money = "$1000";
                         String created_at = user
                                 .getString("created_at");
 
