@@ -165,4 +165,15 @@ public class MovieListActivity extends Fragment {
 
         return rootView;
     }
+
+    private void cancelBuying() {
+        session.setLogin(false);
+        db.deleteUsers();
+
+        // Launching the login activity
+        Intent intent = new Intent(getActivity(), UserLoginActivity.class);
+        startActivity(intent);
+        getActivity().finish();
+    }
+
 }

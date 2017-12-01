@@ -122,7 +122,6 @@ public class UserCartActivity extends Fragment {
                         // Getting a reference to listview of main.xml layout file
                         listView = ( ListView ) getActivity().findViewById(R.id.cart_view);
 
-
                         if (listView != null) {
                             listView.setAdapter(adapter);
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

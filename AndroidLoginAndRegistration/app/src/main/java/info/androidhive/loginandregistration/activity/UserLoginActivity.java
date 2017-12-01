@@ -137,7 +137,7 @@ public class UserLoginActivity extends AppCompatActivity {
                         JSONObject user = jObj.getJSONObject("user");
                         String name = user.getString("name");
                         String email = user.getString("email");
-                        String created_at = "$"+user.getString("money");
+                        String created_at = user.getString("money");
 
                         Toast.makeText(getApplicationContext(), "You have $"+user.getString("money"), Toast.LENGTH_LONG).show();
 

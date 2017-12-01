@@ -11,9 +11,6 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 	// receiving the post params
 	$email = $_POST['email'];
 	$password = $_POST['password'];
-	
-	// receiving the post params
-	$email = "mary";
 
 	// get the user by email and password
 	$stmt = mysqli_prepare($conn, "SELECT * FROM app_users WHERE email = ?");
@@ -45,7 +42,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 	} else {
 		// user is not found with the credentials
 		$response["error"] = TRUE;
-		$response["error_msg"] = "Login  credentials are wrong. Please try again!";
+		$response["error_msg"] = "Login credentials are wrong. Please try again!";
 		echo json_encode($response);
 	}
 	

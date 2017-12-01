@@ -29,7 +29,7 @@
         android:layout_weight="1.75" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/cancelBuying"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
