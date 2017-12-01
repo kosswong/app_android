@@ -11,7 +11,7 @@
     <string name="btn_link_to_login">Already registred! Login Me.</string>
     <string name="welcome">Welcome</string>
     <string name="btn_logout">LOGOUT</string>
-    <string name="name"> Nick name</string>
+    <string name="name"> Name</string>
 
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>

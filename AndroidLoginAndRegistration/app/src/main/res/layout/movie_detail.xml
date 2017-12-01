@@ -19,6 +19,7 @@
         android:layout_width="match_parent">
 
         <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/moviebar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:toolbarId="@+id/toolbar"
@@ -26,19 +27,17 @@
             app:layout_scrollInterpolator="@android:anim/decelerate_interpolator"
             app:contentScrim="?attr/colorPrimary">
 
-            <ImageView
-                android:id="@+id/movie_detail_banner"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="false"
-                android:cropToPadding="false"
-                android:scaleType="centerCrop"
-                android:src="@drawable/moviebg" />
-
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_width="match_parent"></android.support.v7.widget.Toolbar>
+
+            <ImageView
+                android:id="@+id/movie_detail_banner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/moviebg" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
@@ -95,13 +94,42 @@
                 android:layout_marginLeft="75dp"
                 android:layout_marginStart="75dp"
                 android:layout_marginTop="30dp"
+                android:text="ASDFGHJKL"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/url"
+                android:layout_marginTop="30dp"
+                android:text="Price"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/url"
+                android:layout_marginLeft="75dp"
+                android:layout_marginStart="75dp"
+                android:layout_marginTop="30dp"
                 android:text="ASDFGHJKL" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/name"
+                android:layout_below="@+id/price"
+                android:layout_marginTop="30dp"
+                android:text="@string/url"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView3"
                 android:layout_marginTop="30dp"
                 android:text="@string/url"
                 android:textStyle="bold" />
@@ -117,19 +145,18 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_toEndOf="@+id/name"
+                android:layout_toEndOf="@+id/textView3"
                 android:text="@string/add_to_cart" />
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/url"
-                android:layout_marginTop="23dp"
-                android:layout_toStartOf="@+id/buyMovie"
-                android:text="Trailer" />
+                android:text="Trailer"
+                android:layout_alignBaseline="@+id/textView3"
+                android:layout_alignBottom="@+id/textView3"
+                android:layout_toRightOf="@+id/textView3"
+                android:layout_toEndOf="@+id/textView3" />
 
             <RatingBar
                 android:id="@+id/ratingBar4"

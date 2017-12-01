@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ import info.androidhive.loginandregistration.helper.SessionManager;
 public class MovieDetailActivity extends Activity {
     private ProgressDialog pDialog;
     private SessionManager session;
+    CollapsingToolbarLayout collapsingToolbarLayout;
     private SQLiteHandler db;
     private Button btnBuyMovie;
     private Button button2;
@@ -65,13 +67,21 @@ public class MovieDetailActivity extends Activity {
                     TextView wid = (TextView) findViewById(R.id.wid);
                     TextView name = (TextView) findViewById(R.id.name);
                     TextView url = (TextView) findViewById(R.id.url);
+                    TextView description = (TextView) findViewById(R.id.description);
+                    TextView price = (TextView) findViewById(R.id.price);
 
                     // Check for error node in json
                     if (!error) {
                         JSONObject movie = jObj.getJSONObject("movie");
                         wid.setText(movie.getString("pid"));
                         name.setText(movie.getString("name"));
-                        url.setText(movie.getString("description"));
+                        url.setText(movie.getString("youtube"));
+                        description.setText(movie.getString("description"));
+                        price.setText(movie.getString("price"));
+
+                        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.moviebar_layout);
+                        collapsingToolbarLayout.setTitle(movie.getString("name"));
+
                     } else {
                         // Error in login. Get the error message
                         String errorMsg = jObj.getString("error_msg");

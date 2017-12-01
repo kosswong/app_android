@@ -20,7 +20,7 @@ if (mysqli_num_rows($result) > 0) {
         // temp user array
         $movie["pid"] = $row["movie_id"];
         $movie["name"] = $row["movie_name"];
-        $movie["price"] = '1000';
+        $movie["price"] = "100";
         $movie["description"] = $row["movie_detail"];
         $movie["class"] = $row["movie_class"];
         $movie["youtube"] = $row["youtube"];
