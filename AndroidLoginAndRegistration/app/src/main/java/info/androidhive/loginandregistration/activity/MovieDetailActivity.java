@@ -79,8 +79,6 @@ public class MovieDetailActivity extends Activity {
                         description.setText(movie.getString("description"));
                         price.setText(movie.getString("price"));
 
-                        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.moviebar_layout);
-                        collapsingToolbarLayout.setTitle(movie.getString("name"));
 
                     } else {
                         // Error in login. Get the error message
