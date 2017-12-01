@@ -13,6 +13,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import android.widget.SimpleAdapter;
+
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -86,7 +91,37 @@ public class MovieListActivity extends Fragment {
                             items.add(object.getString("name"));
                         }
 
-                        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, items);
+                        // the image
+                        int[] Image = new int[items.size()];
+                        for(int i=0;i<items.size();i++)
+                        {
+                            Image[i] = R.drawable.ic_theaters_black_24dp;
+                        }
+
+                        // old version
+                        // ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, items);
+
+                        // new version with image
+                        // Each row in the list stores country name, currency and flag
+                        List<HashMap<String,String>> aList = new ArrayList<HashMap<String,String>>();
+                        for(int i=0;i<10;i++){
+                            HashMap<String, String> hm = new HashMap<String,String>();
+                            hm.put("name", items.get(i));
+                            hm.put("image", Integer.toString(Image[i]) );
+                            aList.add(hm);
+                        }
+                        // Keys used in Hashmap
+                        String[] from = { "name","image" };
+                        // Ids of views in listview_layout
+                        int[] to = { R.id.listItemTextName,R.id.listItemImage};
+                        // Instantiating an adapter to store each items
+                        // R.layout.listview_layout defines the layout of each item
+                        SimpleAdapter adapter = new SimpleAdapter(getActivity().getBaseContext(), aList, R.layout.movie_row, from, to);
+
+                        // Getting a reference to listview of main.xml layout file
+                        listView = ( ListView ) getActivity().findViewById(R.id.list_view);
+
+
 
                         if (listView != null) {
                             listView.setAdapter(adapter);
