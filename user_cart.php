@@ -29,6 +29,7 @@ if (1) {
 			$product["mid"] = $row["movie_id"];
 			$product["name"] = $row["movie_name"];
 			$product["class"] = $row["movie_class"];
+			$product["price"] = $row["price"];
 
 			// push single product into final response array
 			array_push($response["products"], $product);

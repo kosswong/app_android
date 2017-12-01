@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -23,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import info.androidhive.loginandregistration.R;
@@ -74,6 +76,7 @@ public class UserCartActivity extends Fragment {
                     ListView listView = (ListView) rootView.findViewById(R.id.cart_view);
 
                     List<String> items = new ArrayList<>();
+                    List<String> price = new ArrayList<>();
 
                     JSONArray array= jObj.getJSONArray("products");
 
@@ -84,9 +87,40 @@ public class UserCartActivity extends Fragment {
                         {
                             JSONObject object= array.getJSONObject(i);
                             items.add(object.getString("name"));
+                            price.add(object.getString("price"));
                         }
 
-                        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, items);
+                        // the image
+                        int[] Image = new int[items.size()];
+                        for(int i=0;i<items.size();i++)
+                        {
+                            Image[i] = R.drawable.ic_theaters_black_24dp;
+                        }
+
+                        // old version
+                        // ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, items);
+
+                        // new version with image
+                        // Each row in the list stores country name, currency and flag
+                        List<HashMap<String,String>> aList = new ArrayList<HashMap<String,String>>();
+                        for(int i=0;i<items.size();i++){
+                            HashMap<String, String> hm = new HashMap<String,String>();
+                            hm.put("image", Integer.toString(Image[i]) );
+                            hm.put("name", items.get(i));
+                            hm.put("price", price.get(i));
+                            aList.add(hm);
+                        }
+                        // Keys used in Hashmap
+                        String[] from = { "image", "name", "price"};
+                        // Ids of views in listview_layout
+                        int[] to = { R.id.cartItemImage,R.id.cartItemTextName, R.id.cartItemTextPrice};
+                        // Instantiating an adapter to store each items
+                        // R.layout.listview_layout defines the layout of each item
+                        SimpleAdapter adapter = new SimpleAdapter(getActivity().getBaseContext(), aList, R.layout.user_cart_row, from, to);
+
+                        // Getting a reference to listview of main.xml layout file
+                        listView = ( ListView ) getActivity().findViewById(R.id.cart_view);
+
 
                         if (listView != null) {
                             listView.setAdapter(adapter);

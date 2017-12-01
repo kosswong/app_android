@@ -104,7 +104,7 @@ public class MovieListActivity extends Fragment {
                         // new version with image
                         // Each row in the list stores country name, currency and flag
                         List<HashMap<String,String>> aList = new ArrayList<HashMap<String,String>>();
-                        for(int i=0;i<10;i++){
+                        for(int i=0;i<items.size();i++){
                             HashMap<String, String> hm = new HashMap<String,String>();
                             hm.put("name", items.get(i));
                             hm.put("image", Integer.toString(Image[i]) );
