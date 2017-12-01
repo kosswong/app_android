@@ -3,10 +3,15 @@ package info.androidhive.loginandregistration.activity;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +23,7 @@ import com.android.volley.toolbox.StringRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -79,6 +85,9 @@ public class MovieDetailActivity extends Activity {
                         description.setText(movie.getString("description"));
                         price.setText(movie.getString("price"));
 
+                        // show The Image
+                        new DownloadImageTask((ImageView) findViewById(R.id.movie_detail_banner))
+                                .execute(movie.getString("poster"));
 
                     } else {
                         // Error in login. Get the error message
@@ -118,7 +127,6 @@ public class MovieDetailActivity extends Activity {
                 TextView wid = (TextView) findViewById(R.id.wid);
                 String movie_id = wid.getText().toString();
                 String uid = user.get("uid");
-
                 String tag_string_req = "req_login";
 
                 if (!name.isEmpty() && !email.isEmpty() && !movie_id.isEmpty() && !uid.isEmpty()) {
@@ -130,8 +138,6 @@ public class MovieDetailActivity extends Activity {
                 }
             }
         });
-
-
 
         button2 = (Button) findViewById(R.id.button2);
 
@@ -148,6 +154,32 @@ public class MovieDetailActivity extends Activity {
             }
         });
 
+
+    }
+
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
     }
 
     private void addMovieToCart(final String name, final String email, final String movie_id, final String uid) {

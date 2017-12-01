@@ -23,6 +23,7 @@ if (mysqli_num_rows($result) > 0) {
         $movie["price"] = "100";
         $movie["description"] = $row["movie_detail"];
         $movie["class"] = $row["movie_class"];
+        $movie["poster"] = $row["poster"];
         $movie["youtube"] = $row["youtube"];
     }
     // success

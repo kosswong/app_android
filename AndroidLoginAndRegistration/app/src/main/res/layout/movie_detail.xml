@@ -15,7 +15,7 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:fitsSystemWindows="true"
-        android:layout_height="192dp"
+        android:layout_height="200dp"
         android:layout_width="match_parent">
 
         <android.support.design.widget.CollapsingToolbarLayout
@@ -153,7 +153,7 @@
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Trailer"
+                android:text="Preview"
                 android:layout_below="@+id/description"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
@@ -169,5 +169,7 @@
         </RelativeLayout>
 
     </android.support.v4.widget.NestedScrollView>
+
+
 </android.support.design.widget.CoordinatorLayout>
     <!--https://www.journaldev.com/10642/android-jsonobject-json-parsing-->
