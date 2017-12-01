@@ -80,6 +80,7 @@ public class UserDetailActivity extends Fragment {
         txtName.setText(name);
         txtEmail.setText(email);
         txtMoney.setText(money);
+        txtMoney.setText(user.get("money"));
 
         // Logout button click event
         btnLogout.setOnClickListener(new View.OnClickListener() {
@@ -123,6 +124,7 @@ public class UserDetailActivity extends Fragment {
                     if (!error) {   // Received correct json file
                         TextView money = (TextView) getActivity().findViewById(R.id.money);
                         money.setText(jObj.getString("money"));
+
                         String message = jObj.getString("message");
                         Toast.makeText(getActivity().getApplicationContext(), message, Toast.LENGTH_LONG).show();
 

@@ -146,7 +146,7 @@ public class MovieListActivity extends Fragment {
                 } catch (JSONException e) {
                     // JSON error
                     e.printStackTrace();
-                    Toast.makeText(getActivity(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), " " + e.getMessage(), Toast.LENGTH_LONG).show();
                 }
 
             }

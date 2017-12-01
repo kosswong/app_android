@@ -8,7 +8,7 @@ $conn = $db->connect();
 
     // check if user is already existed with the same email
 
-$result = mysqli_query($conn, "SELECT COUNT(`movie_id`)*10 AS price FROM `app_user_pays` WHERE user_id=1");
+$result = mysqli_query($conn, "SELECT COUNT(`movie_id`)*100 AS price FROM `app_user_pays` WHERE user_id=1");
 $row = mysqli_fetch_assoc($result);
 $money = $row['price'];
 	$sql = mysqli_query($conn, "UPDATE app_users SET money=money-".$row['price']." WHERE id=1");

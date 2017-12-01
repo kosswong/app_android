@@ -71,7 +71,7 @@ public class MovieDetailActivity extends Activity {
                         JSONObject movie = jObj.getJSONObject("movie");
                         wid.setText(movie.getString("pid"));
                         name.setText(movie.getString("name"));
-                        url.setText(movie.getString("youtube"));
+                        url.setText(movie.getString("description"));
                     } else {
                         // Error in login. Get the error message
                         String errorMsg = jObj.getString("error_msg");

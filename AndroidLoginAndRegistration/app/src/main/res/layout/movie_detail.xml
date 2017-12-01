@@ -6,6 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:fitsSystemWindows="true"
@@ -33,19 +39,9 @@
                 android:id="@+id/toolbar"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_width="match_parent"></android.support.v7.widget.Toolbar>
+
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
-
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:src="@android:drawable/ic_input_add"
-        app:layout_anchor="@+id/appbar"
-        app:layout_anchorGravity="right|bottom"
-        tools:layout_editor_absoluteX="328dp" />
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -56,15 +52,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".activity.MovieDetailActivity">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/info"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/wid"
@@ -119,6 +106,10 @@
                 android:text="@string/url"
                 android:textStyle="bold" />
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
             <Button
                 android:id="@+id/buyMovie"
                 android:layout_width="match_parent"
@@ -138,7 +129,15 @@
                 android:layout_below="@+id/url"
                 android:layout_marginTop="23dp"
                 android:layout_toStartOf="@+id/buyMovie"
-                android:text="Trialer" />
+                android:text="Trailer" />
+
+            <RatingBar
+                android:id="@+id/ratingBar4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/name"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
 
         </RelativeLayout>
 
