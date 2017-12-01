@@ -36,6 +36,17 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:src="@android:drawable/ic_input_add"
+        app:layout_anchor="@+id/appbar"
+        app:layout_anchorGravity="right|bottom"
+        tools:layout_editor_absoluteX="328dp" />
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -47,28 +58,29 @@
             tools:context=".activity.MovieDetailActivity">
 
             <TextView
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textStyle="bold"
-                android:textSize="18sp"
                 android:text="@string/info"
-                android:id="@+id/textView" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/wid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="75dp"
+                android:layout_marginStart="75dp"
                 android:layout_marginTop="45dp"
-                android:layout_marginStart="75dp" />
+                android:text="ID123" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="45dp"
-                android:textStyle="bold"
-                android:text="@string/wid" />
+                android:text="@string/wid"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/name"
@@ -76,8 +88,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/wid"
                 android:layout_marginLeft="75dp"
+                android:layout_marginStart="75dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginStart="75dp" />
+                android:text="Chan Tai Man" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -93,60 +106,42 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/name"
                 android:layout_marginLeft="75dp"
+                android:layout_marginStart="75dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginStart="75dp" />
+                android:text="ASDFGHJKL" />
 
             <TextView
+                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/name"
                 android:layout_marginTop="30dp"
-                android:textStyle="bold"
                 android:text="@string/url"
-                android:id="@+id/textView3" />
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/buyMovie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/name"
-                android:layout_toEndOf="@+id/textView"
-                android:layout_toRightOf="@+id/textView"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toEndOf="@+id/name"
                 android:text="@string/add_to_cart" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/url"
-                android:layout_alignBottom="@+id/url"
-                android:layout_centerHorizontal="true"
-                android:text="Fav" />
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/name"
-                android:layout_alignEnd="@+id/button"
-                android:layout_alignRight="@+id/button"
-                android:layout_marginEnd="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/url"
+                android:layout_marginTop="23dp"
+                android:layout_toStartOf="@+id/buyMovie"
                 android:text="Trialer" />
 
         </RelativeLayout>
 
     </android.support.v4.widget.NestedScrollView>
-
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:src="@android:drawable/ic_input_add"
-        app:layout_anchor="@+id/appbar"
-        app:layout_anchorGravity="right|bottom"
-        tools:layout_editor_absoluteX="328dp" />
 </android.support.design.widget.CoordinatorLayout>
     <!--https://www.journaldev.com/10642/android-jsonobject-json-parsing-->
