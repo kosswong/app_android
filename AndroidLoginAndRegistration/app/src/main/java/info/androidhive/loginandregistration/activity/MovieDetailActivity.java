@@ -61,7 +61,7 @@ public class MovieDetailActivity extends Activity {
 
         String tag_string_req = "req_login";
 
-        StringRequest strReq = new StringRequest(Method.POST, "http://10.0.2.2/app/movie_detail.php?vid="+id, new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Method.POST, "http://192.168.1.109/app/movie_detail.php?vid="+id, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -87,7 +87,7 @@ public class MovieDetailActivity extends Activity {
 
                         // show The Image
                         new DownloadImageTask((ImageView) findViewById(R.id.movie_detail_banner))
-                                .execute(movie.getString("poster"));
+                                .execute("http://192.168.1.109/app/image/"+movie.getString("poster"));
 
                     } else {
                         // Error in login. Get the error message
@@ -141,20 +141,6 @@ public class MovieDetailActivity extends Activity {
 
         button2 = (Button) findViewById(R.id.button2);
 
-// Register Button Click event
-        button2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                TextView url = (TextView) findViewById(R.id.url);
-                String youtube_id = url.getText().toString();
-                Intent intent = new Intent(MovieDetailActivity.this,
-                        YouTubePlayerFragmentActivity.class);
-                intent.putExtra("youtube_id", youtube_id);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-
     }
 
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
@@ -186,7 +172,7 @@ public class MovieDetailActivity extends Activity {
         // Tag used to cancel the request
         String tag_string_req = "req_add_movie";
 
-        StringRequest strReq = new StringRequest(Method.POST, "http://10.0.2.2/app/movie_buy.php", new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Method.POST, "http://192.168.1.109/app/movie_buy.php", new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {

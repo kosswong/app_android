@@ -114,7 +114,7 @@ public class UserDetailActivity extends Fragment {
         // Tag used to cancel the request
         String tag_string_req = "req_add_movie";
 
-        StringRequest strReq = new StringRequest(Request.Method.POST, "http://10.0.2.2/app/user_pay.php", new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Request.Method.POST, "http://192.168.1.109/app/user_pay.php", new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {

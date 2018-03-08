@@ -114,7 +114,7 @@ public class UserLoginActivity extends AppCompatActivity {
         pDialog.setMessage("Logging in ...");
         showDialog();
 
-        StringRequest strReq = new StringRequest(Method.POST, "http://10.0.2.2/app/user_login.php", new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Method.POST, "http://192.168.1.109/app/user_login.php", new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {

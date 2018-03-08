@@ -63,7 +63,7 @@ public class UserCartActivity extends Fragment {
 
         String tag_string_req = "req_list";
 
-        StringRequest strReq = new StringRequest(Request.Method.POST, "http://10.0.2.2/app/user_cart.php", new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Request.Method.POST, "http://192.168.1.109/app/user_cart.php", new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {

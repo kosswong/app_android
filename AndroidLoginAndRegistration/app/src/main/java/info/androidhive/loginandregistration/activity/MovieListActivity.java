@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -27,9 +26,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import info.androidhive.loginandregistration.R;
 import info.androidhive.loginandregistration.app.AppController;
 import info.androidhive.loginandregistration.helper.SQLiteHandler;
@@ -43,8 +39,7 @@ public class MovieListActivity extends Fragment {
     private AppCompatActivity mClass;
 
     public static MovieListActivity newInstance() {
-        MovieListActivity fragment = new MovieListActivity();
-        return fragment;
+        return new MovieListActivity();
     }
 
     @Override
@@ -66,7 +61,7 @@ public class MovieListActivity extends Fragment {
 
         String tag_string_req = "req_list";
 
-        StringRequest strReq = new StringRequest(Request.Method.POST, "http://10.0.2.2/app/movie_list.php", new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Request.Method.POST, "http://192.168.1.109/app/movie_list.php", new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
